@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="quiz_style.css">
+    <script src="question.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="quiz">
+      <div class="info">
+        <div class="progress">
+          <p class="quiznumber" id="quiznumber"></p>
+          <p class = box0></p>
+          <p class = box1></p>
+        </div>
+      </div>
+      <h1 id="question"></h1>
+      <div class="choice">
+        <p class="prefix">A</p>
+        <p class="text" id="choiceA" onclick="checkAnswer(0)"></p>
+      </div>
+      <div class="choice">
+        <p class="prefix">B</p>
+        <p class="text" id="choiceB" onclick="checkAnswer(1)"></p>
+      </div>
+      <div class="choice">
+        <p class="prefix">C</p>
+        <p class="text" id="choiceC" onclick="checkAnswer(2)"></p>
+      </div>
+      <div class="choice">
+        <p class="prefix">D</p>
+        <p class="text" id="choiceD" onclick="checkAnswer(3)"></p>
+      </div>
+    </div>
+  </body>
+</html>
