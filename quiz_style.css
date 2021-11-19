@@ -105,8 +105,9 @@ html, body {
   background: white;
 }
 .problems{
-  padding: 10px 25px;
-  margin: 0px 1px;
+  padding: 5px;
+  margin: 1px 2px 1px 0;
+  width : 5%;
   color: white;
   background: #56a5eb;
 }
