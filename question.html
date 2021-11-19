@@ -17,6 +17,9 @@
           <p class = box0></p>
           <p class = box1></p>
         </div>
+        <div class = "back_direction">
+          <p class = "l_arrow" onclick = "go_to_back_problem()"> &#8592</p>
+        </div>
       </div>
       <h1 id="question"></h1>
       <div class="choice">
@@ -34,6 +37,14 @@
       <div class="choice">
         <p class="prefix">D</p>
         <p class="text" id="choiceD" onclick="checkAnswer(3)"></p>
+      </div>
+      <div class= "button">
+        <p class ="problems">Go to:</p>
+        <p class= "problems" onclick ="go_to(1)">1</p>
+        <p class= "problems" onclick ="go_to(2)">2</p>
+        <p class= "problems" onclick ="go_to(3)">3</p>
+        <p class= "problems" onclick ="go_to(4)">4</p>
+        <p class= "problems" >5</p>
       </div>
     </div>
   </body>

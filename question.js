@@ -2,6 +2,22 @@ var quizNum = 1;
 var problemList = [1, 2, 3, 4, 5];
 var answer;
 
+let answer_info = []; // for local_storage and algorithm for recommendation
+
+function save_answer(){
+  localStorage.setItem("answer_info", JSON.stringify(answer_info))
+}
+function load_answer() {
+
+  let loaded_answer = localStorage.getItem("answer_info")
+    if(!loaded_answer){
+        return;
+    }
+    answer_info = JSON.parse(loaded_answer);
+}
+function loading(answers){
+
+}
 function shuffeQuestion(){
   let currentIndex = problemList.length, randomIndex;
   while (currentIndex != 0) {
@@ -69,12 +85,58 @@ function showProblem(number){
   document.getElementById("choiceD").innerHTML=choiceD;
 }
 
+function go_to_back_problem(){ // go to back and delete answer in local storage.
+  
+  
+  for( var i = 0 ; i < answer_info.length; i++){
+    if(answer_info[i].problem_number === quizNum-1){
+      answer_info.splice(i,1);
+    }
+  }
+  save_answer();
+
+  if(quizNum == 1){
+    location.href = "index.html"
+    return;
+  }
+
+  quizNum--;
+  let px = 50 * quizNum;
+  px = px + "px";
+  document.getElementsByClassName("box1")[0].style.width=px;
+  
+  
+  showInfo();
+}
+function go_to(Num){
+  quizNum = Num;
+
+  let px = 50 * quizNum;
+  px = px + "px";
+  document.getElementsByClassName("box1")[0].style.width=px;
+  showInfo();
+}
+
+// when users clicked a answer of questions, call the CheckAnswer(i) : i is a answer number.
 function checkAnswer(number){
+  let user_answer = { 
+    problem_number : quizNum,
+    user_clicked : number
+  }
+  for( var i = 0 ; i < answer_info.length; i++){ // if users click the problems number directly, there are some duplicate so delete it.
+    if(answer_info[i].problem_number === quizNum){
+      answer_info.splice(i,1);
+    }
+  }
+  answer_info.push(user_answer);
+  save_answer();
+
   console.log(number);
   var choice = [document.getElementsByClassName("text")[0],
                 document.getElementsByClassName("text")[1],
                 document.getElementsByClassName("text")[2],
                 document.getElementsByClassName("text")[3]]
+
   if(number == answer){
     choice[number].style.backgroundColor="green";
   }
@@ -85,17 +147,12 @@ function checkAnswer(number){
     setTimeout(function() {
       quizNum++;
       choice[number].style.backgroundColor="white";
-      if (quizNum == 1){
-        document.getElementsByClassName("box1")[0].style.width="50px";
-      } else if (quizNum == 2){
-        document.getElementsByClassName("box1")[0].style.width="100px";
-      } else if (quizNum == 3) {
-        document.getElementsByClassName("box1")[0].style.width="150px";
-      } else if (quizNum == 4) {
-        document.getElementsByClassName("box1")[0].style.width="202px";
-      }
+      let px = 50 * quizNum;
+      px = px + "px";
+      document.getElementsByClassName("box1")[0].style.width=px;
       showInfo();
-    }, 1500);
+    }, 100);
+    
   } else {
     setTimeout(function() {
       location.href="result.html";
@@ -108,4 +165,11 @@ function showInfo(){
   showProblem(problemList[quizNum-1]);
 }
 
-window.onload = shuffeQuestion;
+// window.onload = shuffeQuestion;
+
+window.addEventListener("load", () => {
+  load_answer();
+
+  shuffeQuestion();
+
+})
