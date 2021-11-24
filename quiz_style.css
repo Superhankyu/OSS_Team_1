@@ -28,6 +28,12 @@ html, body {
   justify-content: space-between;
   text-align: center;
   padding-bottom: 10px;
+  
+}
+.l_arrow{
+  font-size: 26px;
+  color : white;
+  padding-top: 15px;
 }
 
 .quiznumber{
@@ -92,6 +98,19 @@ html, body {
   background: white;
 }
 
+.button{
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  background: white;
+}
+.problems{
+  padding: 5px;
+  margin: 1px 2px 1px 0;
+  width : 5%;
+  color: white;
+  background: #56a5eb;
+}
 .choice:hover{
   top: -1px;
   box-shadow: 0 4px 5px rgba(86, 165, 235, 0.4);
