@@ -155,7 +155,7 @@ function checkAnswer(number){
     
   } else {
     setTimeout(function() {
-      location.href="result.html";
+      location.href="analyze.html";
     }, 1500);
   }
 }
