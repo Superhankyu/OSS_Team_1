@@ -2,6 +2,7 @@ var quizNum = 1;
 var problemList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 let answer_info = []; // for local_storage and algorithm for recommendation
+var max_num = 1;
 
 function save_answer(){
   localStorage.setItem("answer_info", JSON.stringify(answer_info))
@@ -126,6 +127,9 @@ function go_to_back_problem(){ // go to back and delete answer in local storage.
 }
 
 function go_to(Num){
+  if(Num > max_num){
+    return;
+  }
   quizNum = Num;
 
   let px = 20 * quizNum;
@@ -157,6 +161,9 @@ function checkAnswer(number){
 
   if (quizNum < 15){
     setTimeout(function() {
+      if(max_num === quizNum){
+        max_num++;
+      }
       quizNum++;
       choice[number].style.backgroundColor="white";
       let px = 20 * quizNum;
@@ -169,7 +176,7 @@ function checkAnswer(number){
 
     setTimeout(function() {
       location.href="analyze.html";
-    }, 1500);
+    }, 1000);
   }
 }
 
