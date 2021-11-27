@@ -148,9 +148,17 @@ function checkAnswer(number){
   answer_info.push(user_answer);
   save_answer();
 
+  console.log(number);
+  var choice = [document.getElementsByClassName("text")[0],
+                document.getElementsByClassName("text")[1]]
+
+  choice[number].style.backgroundColor="orange";
+  
+
   if (quizNum < 15){
     setTimeout(function() {
       quizNum++;
+      choice[number].style.backgroundColor="white";
       let px = 20 * quizNum;
       px = px + "px";
       document.getElementsByClassName("box1")[0].style.width=px;
