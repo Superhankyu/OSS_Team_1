@@ -1,9 +1,9 @@
-# P L A T 
+# P L R T 
 
 [GO TO TEST!](https://kokonut707.github.io/OSS_Team_1/index.html)
 
 ```
-"PLAT" is the wep page for programming language recommendation to people who first come to CS engineering.
+"PLRT" is the wep page for programming language recommendation to people who first come to CS engineering.
 ```
 <img src = "./Start_page.png" width = "600" height = "500">
 
