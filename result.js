@@ -45,63 +45,63 @@ function load_answer() {
 function showResult(number, place) {
   var languageType, img_path;
   switch (number) {
-    case 1:
+    case 8:
       languageType = "C";
       img_path = "assets/C_logo.png"
       break;
-    case 2:
+    case 10:
       languageType = "C++";
       img_path = "assets/C++_logo.png"
       break;
-    case 3:
+    case 11:
       languageType = "C#";
       img_path = "assets/Csharp_logo.png"
       break;
-    case 4:
+    case 13:
       languageType = "JAVA";
       img_path = "assets/Java_logo.png"
       break;
-    case 5:
+    case 15:
       languageType = "Javascript";
       img_path = "assets/Javascript_logo.png"
       break;
-    case 6:
+    case 14:
       languageType = "Python";
       img_path = "assets/Python_logo.png"
       break;
-    case 7:
+    case 6:
       languageType = "Kotlin";
       img_path = "assets/Kotlin_logo.png"
       break;
-    case 8:
+    case 3:
       languageType = "Swift";
       img_path = "assets/Swift_logo.png"
       break;
-    case 9:
+    case 4:
       languageType = "Ruby";
       img_path = "assets/Ruby_logo.png"
       break;
-    case 10:
+    case 7:
       languageType = "Go";
       img_path = "assets/Go_logo.png"
       break;
-    case 11:
+    case 2:
       languageType = "Scala";
       img_path = "assets/Scala_logo.png"
       break;
-    case 12:
+    case 5:
       languageType = "Rust";
       img_path = "assets/Rust_logo.png"
       break;
-    case 13:
+    case 9:
       languageType = "PHP";
       img_path = "assets/PHP_logo.png"
       break;
-    case 14:
+    case 12:
       languageType = "Typescript";
       img_path = "assets/Typescript_logo.png"
       break;
-    case 15:
+    case 1:
       languageType = "Racket";
       img_path = "assets/Racket_logo.png"
       break;
