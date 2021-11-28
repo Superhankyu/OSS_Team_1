@@ -4,35 +4,36 @@ var problemList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 let answer_info = []; // for local_storage and algorithm for recommendation
 var max_num = 1;
 
-function save_answer(){
+function save_answer() {
   localStorage.setItem("answer_info", JSON.stringify(answer_info))
 }
+
 function load_answer() {
 
-  let loaded_answer = localStorage.getItem("answer_info")
-    if(!loaded_answer){
-        return;
-    }
-    answer_info = JSON.parse(loaded_answer);
+  let loaded_answer = localStorage.getItem("answer_info");
+  if (!loaded_answer) {
+    return;
+  }
+  answer_info = JSON.parse(loaded_answer);
 }
 
-function showQuizNum(){
-  document.getElementById("quiznumber").innerHTML="Question "+quizNum+"/15";
+function showQuizNum() {
+  document.getElementById("quiznumber").innerHTML = "Question " + quizNum + "/15";
 }
 
-function showProblem(number){
+function showProblem(number) {
   var question;
   var choiceA, choiceB;
-  switch(number){
+  switch (number) {
     case 1:
       question = "당신은 열심히 수업을 듣고 난 후 학교 근처 맛집에서 친구들과 밥을 먹기로 했습니다. 그리고 식당에 도착한 뒤, 당신은?";
       choiceA = "주변을 둘러보니 12번 테이블 자리가 비어 있다. 저 자리로 걸어가 앉는다.";
-      choiceB = "점원에게 가서 말한다. 네 명 앉을 자리 있나요?";
+      choiceB = "점원에게 가서 말한다. ‘네 명 앉을 자리 있나요?’";
       break;
     case 2:
       question = "기분 좋게 식사를 마치고 나오면 어느 한 외국인이 길을 물어옵니다. 영어가 서툰 당신은 만능 구글 번역기를 사용하기로 합니다.";
       choiceA = "“그러니까… 직진해서 간다가 뭐지? 고 스트레잇 원블락 앤드….” 문장을 하나씩 번역해가면서 길을 알려준다.";
-      choiceB = "‘한 블록 직진해서 간 다음에, 오른쪽으로 돌아서 보이는 은행 반대편에 있습니다.’ 설명할 말들은 모두 적은 후에 한 번에 번역한 후 길을 알려준다.";
+      choiceB = "‘한 블록 직진해서 간 다음에, 오른쪽으로 돌아서 보이는 은행 반대편에 있다고 말하면 되겠지.’ 설명할 말들은 모두 적은 후에 한꺼번에 번역해서 길을 알려준다.";
       break;
     case 3:
       question = "외국인은 친절한 당신에게 고맙다는 인사를 하고 갑니다. 밥 먹고 나서는 커피 한 잔 하는 게 국룰이죠. 당신은 자판기 앞에 섭니다. 이 자판기는…";
@@ -76,7 +77,7 @@ function showProblem(number){
       break;
     case 11:
       question = "쇠뿔도 단김에 빼라는데. 생각난 김에 화장실 청소도 하기로 합니다. 어디 보자...";
-      choiceA = "락스 하나만 있으며 충분하지.";
+      choiceA = "락스 하나만 있으면 충분하지.";
       choiceB = "물때는 이게 잘 지워지고, 찌든때는 저게 잘 지워지던데. 용도별로 세제가 구비되어있다.";
       break;
     case 12:
@@ -100,53 +101,54 @@ function showProblem(number){
       choiceB = "이왕 테스트 해본 거 나에게 맞는 프로그래밍 언어라고 생각하고 배워볼 의향이 있다.";
       break;
   }
-  document.getElementById("question").innerHTML=question;
-  document.getElementById("choiceA").innerHTML=choiceA;
-  document.getElementById("choiceB").innerHTML=choiceB;
-  }
+  document.getElementById("question").innerHTML = question;
+  document.getElementById("choiceA").innerHTML = choiceA;
+  document.getElementById("choiceB").innerHTML = choiceB;
+}
 
-function go_to_back_problem(){ // go to back and delete answer in local storage.
- 
-  for( var i = 0 ; i < answer_info.length; i++){
-    if(answer_info[i].problem_number === quizNum-1){
-      answer_info.splice(i,1);
+function go_to_back_problem() { // go to back and delete answer in local storage.
+
+  for (var i = 0; i < answer_info.length; i++) {
+    if (answer_info[i].problem_number === quizNum - 1) {
+      answer_info.splice(i, 1);
     }
   }
   save_answer();
 
-  if(quizNum == 1){
+  if (quizNum == 1) {
     location.href = "index.html"
+    localStorage.removeItem("answer_info");
     return;
   }
 
   quizNum--;
   let px = 20 * quizNum;
   px = px + "px";
-  document.getElementsByClassName("box1")[0].style.width=px;
+  document.getElementsByClassName("box1")[0].style.width = px;
   showInfo();
 }
 
-function go_to(Num){
-  if(Num > max_num){
+function go_to(Num) {
+  if (Num > max_num) {
     return;
   }
   quizNum = Num;
 
   let px = 20 * quizNum;
   px = px + "px";
-  document.getElementsByClassName("box1")[0].style.width=px;
+  document.getElementsByClassName("box1")[0].style.width = px;
   showInfo();
 }
 
 // when users clicked a answer of questions, call the CheckAnswer(i) : i is a answer number.
-function checkAnswer(number){
-  let user_answer = { 
-    problem_number : quizNum,
-    user_clicked : number
+function checkAnswer(number) {
+  let user_answer = {
+    problem_number: quizNum,
+    user_clicked: number
   }
-  for( var i = 0 ; i < answer_info.length; i++){ // if users click the problems number directly, there are some duplicate so delete it.
-    if(answer_info[i].problem_number === quizNum){
-      answer_info.splice(i,1);
+  for (var i = 0; i < answer_info.length; i++) { // if users click the problems number directly, there are some duplicate so delete it.
+    if (answer_info[i].problem_number === quizNum) {
+      answer_info.splice(i, 1);
     }
   }
   answer_info.push(user_answer);
@@ -154,35 +156,37 @@ function checkAnswer(number){
 
   console.log(number);
   var choice = [document.getElementsByClassName("text")[0],
-                document.getElementsByClassName("text")[1]]
+    document.getElementsByClassName("text")[1]
+  ]
 
-  choice[number].style.backgroundColor="orange";
-  
+  choice[number].style.backgroundColor = "orange";
 
-  if (quizNum < 15){
+  document.getElementsByClassName("problems")[quizNum].className += ' checked';
+
+  if (quizNum < 15) {
     setTimeout(function() {
-      if(max_num === quizNum){
+      if (max_num === quizNum) {
         max_num++;
       }
       quizNum++;
-      choice[number].style.backgroundColor="white";
+      choice[number].style.backgroundColor = "white";
       let px = 20 * quizNum;
       px = px + "px";
-      document.getElementsByClassName("box1")[0].style.width=px;
+      document.getElementsByClassName("box1")[0].style.width = px;
       showInfo();
-    }, 100);
-    
+    }, 1000);
+
   } else {
 
     setTimeout(function() {
-      location.href="analyze.html";
+      location.href = "analyze.html";
     }, 1000);
   }
 }
 
-function showInfo(){
+function showInfo() {
   showQuizNum();
-  showProblem(problemList[quizNum-1]);
+  showProblem(problemList[quizNum - 1]);
 }
 
 window.addEventListener("load", () => {

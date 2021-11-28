@@ -12,6 +12,8 @@ html, body {
 }
 
 .content{
+  padding-top: 100px;
+  padding-bottom: 50px;
   position: absolute;
   top: 45%;
   left: 50%;

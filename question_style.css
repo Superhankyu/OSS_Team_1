@@ -1,3 +1,8 @@
+@font-face {
+  src : url("assets/PF스타더스트.ttf");
+  font-family: "stardust"
+}
+
 html, body {
   margin: 0;
   width: 100%;
@@ -6,51 +11,53 @@ html, body {
   font-family: 'DotGothic16', sans-serif;
 }
 
-.progress{
+.progress {
   color: white;
   margin-bottom: 50px;
 }
 
-#question{
-  color:white;
+#question {
+  color: white;
+  font-family: "stardust";
+  font-weight: normal;
 }
 
-.quiz{
+.quiz {
+  margin-top: 80px;
   width: 700px;
   position: absolute;
-  top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 }
 
-.info{
-  display:flex;
+.info {
+  display: flex;
   justify-content: space-between;
   text-align: center;
   padding-bottom: 10px;
-  
 }
-.l_arrow{
+
+.l_arrow {
   font-size: 26px;
-  color : white;
+  color: white;
   padding-top: 15px;
 }
 
-.quiznumber{
+.quiznumber {
   margin: 0;
-  margin-left: 50px;
+  margin-left: 100px;
   display: inline-block;
 }
 
-.box0{
-  position:absolute;
+.box0 {
+  position: absolute;
   border: 4px solid #56a5eb;
   height: 30px;
   width: 300px;
 }
 
-.box1{
-  position:absolute;
+.box1 {
+  position: absolute;
   border: 4px solid #56a5eb;
   border-right: 0px;
   background: #56a5eb;
@@ -58,48 +65,59 @@ html, body {
   width: 20px;
 }
 
-
-.info .scoreboard > h2{
+.info .scoreboard>h2 {
   margin: 0;
   color: #56a5eb;
   font-size: 35px;
 }
 
-.choice{
+.choice {
   display: flex;
   margin-bottom: 10px;
   width: 100%;
   background: white;
 }
 
-.button{
+.button {
   display: flex;
+  margin-top: 20px;
   margin-bottom: 10px;
   width: 100%;
   background: white;
 }
-.problems{
+
+.problems {
   padding: 5px;
   margin: 1px 2px 1px 0;
-  width : 5%;
+  width: 5%;
   color: white;
   background: #56a5eb;
 }
-.choice:hover{
+
+.checked {
+  padding: 5px;
+  margin: 1px 2px 1px 0;
+  width: 5%;
+  color: #56a5eb;
+  background: white;
+}
+
+.choice:hover {
   top: -1px;
   box-shadow: 0 4px 5px rgba(86, 165, 235, 0.4);
 }
 
-.prefix{
+.prefix {
   padding: 10px 25px;
   margin: 0;
   color: white;
   background: #56a5eb;
-
 }
 
-.text{
+.text {
   padding: 10px 15px;
   margin: 0;
   width: 100%;
+  font-family: "stardust";
+  padding-top: 15px;
 }

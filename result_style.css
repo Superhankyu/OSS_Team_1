@@ -1,38 +1,42 @@
 html, body {
-  margin: auto;
+  margin: 0;
   width: 100%;
-  background: #ffffff;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Nanum Pen Script', cursive;
+  height: 100%;
+  background: #272d34;
+  font-family: 'DotGothic16', sans-serif;
 }
 
-.content {
-  margin-top: 1rem;
-  text-align: center;
-  align-items: center;
+.content{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .content > h1{
-  font-size: 3rem;
-  color: #56a5eb;
-  display: inline-block;
-}
-.content > h3{
-  font-size: 2rem;
-  color: #56a5eb;
-  display: inline-block;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  margin: 0;
 }
 
-.content > a {
+.content > p:nth-child(2){
+  color: white;
+  text-align: center;
+}
+
+.content > p:nth-child(3){
+  color: #547050;
+  text-align: center;
+}
+
+.content>a {
+  margin-top: 50px;
   background: orange;
   width: 180px;
   padding: 8px;
   color: white;
   font-size: 1.5rem;
   border: 3px solid white;
-  display:block;
+  display: block;
   text-decoration: none;
   text-align: center;
   position: relative;
@@ -40,40 +44,41 @@ html, body {
   left: 50%;
   transform: translate(-50%, -10%);
   transition: all .1s ease-in;
-  
 }
 
-.content > a:hover {
+.content>a:hover {
   top: -1px;
-  box-shadow: 0 4px 5px rgba(255,99,71, 0.4);
+  box-shadow: 0 4px 5px rgba(255, 99, 71, 0.4);
 }
 
+.img-wrap{
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
 
-.rec {
-  width : 40%;
-  margin-left: auto;
-  margin-right: auto;
-  
+.img-content{
+  margin-top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 100px;
 }
-.rec > p {
-  font-size: 1.3rem;
-  color:brown;
-}
-.rec > h1,h2,h3{
+
+.img-content>h2 {
+  margin-top: 2rem;
+  font-size: 2rem;
   text-align: center;
 }
-.rec > h2 {
-  margin-top:2rem;
-  font-size:2rem;
-  text-align: center;
-}
-.rec > h3 {
+
+.img-content>p {
   font-size: 1.6rem;
   text-align: center;
 }
-.rec > img{
-  width: 70px;
-  height: 110px;
+
+.rec_img {
+  width: 100px;
   display: block;
   margin: auto;
 }

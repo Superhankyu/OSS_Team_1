@@ -1,32 +1,62 @@
+@font-face {
+  src: url("assets/PF스타더스트.ttf");
+  font-family: "stardust";
+}
+
 html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #4b376d;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Nanum Pen Script', cursive;
-  }
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #272d34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DotGothic16', sans-serif;
+}
 
-  #title {
-    font-size: 4rem;
-    margin-bottom: 20rem;
-    
-  }
-  .analyzing{
-    text-align: center;
-  }
-  .analyzing > p{
-      text-align: center;
-      color:rgb(250, 250, 250);
-      font-size: 1.3rem;
-  }
-  
-  .analyzing > a {
-      
-      border-radius: 10px;
-      background: rgb(218, 233, 10);
-      font-size : 2.5rem;
+.img-wrap{
+  position: relative;
+}
 
-  }
+h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 100px;
+}
+
+.analyzing {
+  text-align: center;
+}
+
+.analyzing>p {
+  text-align: center;
+  color: rgb(250, 250, 250);
+  font-size: 1.3rem;
+  font-family: "stardust";
+}
+
+a {
+  display: none;
+  font-family: "stardust";
+  background: rgb(218, 233, 10);
+  margin-top: 50px;
+  width: 180px;
+  padding: 8px;
+  color: white;
+  font-size: 1.5rem;
+  border: 3px solid white;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  transition: all .1s ease-in;
+}
+
+a:hover {
+  top: -1px;
+  box-shadow: 0 4px 5px rgba(218, 233, 10, 0.4);
+}
