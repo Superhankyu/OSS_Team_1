@@ -173,7 +173,12 @@ function checkAnswer(number) {
       let px = 20 * quizNum;
       px = px + "px";
       document.getElementsByClassName("box1")[0].style.width = px;
-      showInfo();
+      if(quizNum === 16){
+
+      }else{
+        showInfo();
+      }
+      
     }, 1000);
 
   } else {
